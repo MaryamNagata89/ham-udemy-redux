@@ -1,37 +1,31 @@
 
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class App extends Component {
-  render() {
-    return (
-      <>
-        <label htmlFor="bar">bar</label>
-        <input
-          type="text"
-          onClick={() => {
-            console.log('im clicked');
-          }}
-        />
-        <User name="Maryam" age={36} />
-      </>
-    );
-  }
+const App = () => {
+const profiles = [
+{name:"maryam",age:36},
+{name:"Ramazan",age:54},
+{name:"kaori",age:60}
+]
+return(
+<div>
+{profiles.map((profile,index)=>{
+return <User name = {profile.name} age={profile.age} key={index}/>
+})
 }
-class User extends Component {
-  constructor(props) {
-    super(props);
-    this.name = props.name;
-    this.age = props.age;
-  }
-  render() {
-    return (
-      <div>
-        <p>
-          Im {this.name} and my age is {this.age}
-        </p>
-      </div>
-    );
-  }
+</div>
+)
+}
+const User = (props)=>{
+return <div>Hi,I'm {props.name},my age is {props.age}</div>;
+
+}
+
+User.propTypes = {
+name: PropTypes.string,
+age: PropTypes.number.isRequired
+
 }
 
 export default App;
