@@ -1,11 +1,16 @@
-import React from 'react';
+import React,{ Component } from 'react';
 
 
-class App extends Components {
+class App extends Component {
   render(){
 	return (
-    <div><h1>Hello!!React</h1></div>
-       );
+<> 
+<label htmlFor="bar">bar</label>
+<input type ="text"onClick={()=>{console.log('im clicked')}}/>
+      
+</>
+);
 }
+
 }
 export default App;
